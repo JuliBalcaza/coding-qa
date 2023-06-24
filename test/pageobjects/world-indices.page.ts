@@ -1,8 +1,5 @@
 import { ChainablePromiseElement } from 'webdriverio';
-
-import Page from './page.js';
-
-class WorldIndicesPage extends Page {
+class WorldIndicesPage {
     
     public get priceTable () {
         return $('table[class="table tableFlex table-striped footable footable-1 breakpoint-md"]');

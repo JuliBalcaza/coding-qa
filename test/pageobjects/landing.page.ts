@@ -1,40 +1,34 @@
 import { ChainablePromiseElement } from 'webdriverio';
-
-import Page from './page.js';
-
-class LandingPage extends Page {
+ class LandingPage {
     
     public get hamburgerMenu () {
         return $('button[class="                               offCanvas-toggler                               btn                               p-1                               bg-transparent                               btn-outline-dark                               text-body                             "]');
     }
 
+    async clickHamburgerMenu() {
+        await this.hamburgerMenu.click();
+    }
+
     public get marketSideBarTag () {
-        return $('a[href="#MercadosyCotizaciones"]');
+        return $('a[class="dropdown-sideBar toggle-sideBar"]:nth-child(1)');
+    }
+
+    async clickMarketTag () {
+        await this.marketSideBarTag.click();
     }
 
     public get marketSideBarSubTag () {
-        return $('a[href="/mercados-cotizaciones"]');
+        return $('a[href="/indices-mundiales"]');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    async clickMarketSubTag () {
+        (await this.marketSideBarSubTag).click();
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
     public open () {
-        return super.open('login');
+        return browser.url(`https://www.eleconomista.es/`)
     }
+
 }
 
 export default new LandingPage();
-
-
-
