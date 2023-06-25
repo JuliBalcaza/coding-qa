@@ -1,4 +1,3 @@
-import { ChainablePromiseElement } from 'webdriverio';
  class LandingPage {
     
     public get hamburgerMenu () {
@@ -10,7 +9,8 @@ import { ChainablePromiseElement } from 'webdriverio';
     }
 
     public get marketSideBarTag () {
-        return $('a[class="dropdown-sideBar toggle-sideBar"]:nth-child(1)');
+        return $('div[class="item"] > a[href="#MercadosyCotizaciones"]');
+        
     }
 
     async clickMarketTag () {
@@ -18,7 +18,7 @@ import { ChainablePromiseElement } from 'webdriverio';
     }
 
     public get marketSideBarSubTag () {
-        return $('a[href="/indices-mundiales"]');
+        return $('li >  a[href="/indices-mundiales/"]:first-child');
     }
 
     async clickMarketSubTag () {

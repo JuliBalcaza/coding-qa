@@ -1,4 +1,3 @@
-import { ChainablePromiseElement } from 'webdriverio';
 class WorldIndicesPage {
     
     public get priceTable () {
@@ -6,15 +5,15 @@ class WorldIndicesPage {
     }
 
     public get IBEX35Row () {
-        return $('td[contains(.,"IBEX 35")]/following-sibling::td[1]/descendant::span')
+        return $('//*[@id="main-wrap"]/section[5]/div/div/div[2]/div/div[1]/div/section/table/tbody/tr[1]/td[2]/span');
     }
 
     public get BE20Row () {
-        return $('td[contains(.,"BE 20")]/following-sibling::td[1]/descendant::span')
+        return $('//*[@id="main-wrap"]/section[5]/div/div/div[2]/div/div[1]/div/section/table/tbody/tr[4]/td[2]/span')
     }
 
     public get UK100Row() {
-        return $('td[contains(.,"UK 100")]/following-sibling::td[1]/descendant::span')
+        return $('//*[@id="main-wrap"]/section[5]/div/div/div[2]/div/div[1]/div/section/table/tbody/tr[7]/td[2]/span')
     }
 
 }
